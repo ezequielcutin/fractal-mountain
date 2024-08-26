@@ -1,0 +1,96 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Fractal Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- vertex shader -->
+    <script id="vertex-shader", type="x-shader/x-vertex">
+        #version 300 es
+        in vec4 aPosition;
+        uniform float uTime;
+        uniform float uTimeSpeed;
+        out float vTime;
+
+        void main()
+        {
+            gl_Position = aPosition;
+            vTime = uTime * uTimeSpeed;
+        }
+
+    </script>
+
+    <!-- fragment shader -->
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        #version 300 es
+        
+        precision mediump float;
+        in float vTime;
+        uniform float uXFrequency;
+        uniform float uYFrequency;
+        uniform vec3 uColor1;
+        uniform vec3 uColor2;
+        out vec4 fColor;
+
+        void main()
+        {
+            float shimmer = sin(vTime + gl_FragCoord.x * uXFrequency + gl_FragCoord.y * uYFrequency) * 0.5 + 0.5;
+            fColor = vec4(mix(uColor1, uColor2, shimmer), 1.0);
+        }
+    </script>
+
+    <script src = "initShaders.js"> </script>
+    <script src = "MV.js">          </script>
+    <script src = "edgeSketch.js">  </script>
+
+</head>
+<body>
+    <div id="description">
+        <h2>Fractal Visualization Project</h2>
+        <p>This project delves into the captivating world of fractal geometry, using the principles of linear algebra to reveal the intricate patterns formed by recursive algorithms. It highlights the fascinating intersection of art and science within computer graphics, demonstrating how mathematical beauty manifests visually. This introductory exploration invites you to discover the aesthetic and scientific significance of fractals across various fields. Future plans include mirroring the image and eventually venturing into the realm of 3D fractals, expanding the horizons of this mesmerizing visual journey.</p>
+    </div>
+
+
+    <div id="controls">
+        <div>
+            <label for="timeSpeed">Shimmer Speed: </label>
+            <input type="range" id="timeSpeed" min="0" max="10" step="0.1" value="1.0">
+            <span id="timeSpeedValue">1.0</span>
+        </div>
+        <div>
+            <label for="xFrequency">X Frequency: </label>
+            <input type="range" id="xFrequency" min="0" max="0.1" step="0.001" value="0.01">
+            <span id="xFrequencyValue">0.01</span>
+        </div>
+        <div>
+            <label for="yFrequency">Y Frequency: </label>
+            <input type="range" id="yFrequency" min="0" max="0.1" step="0.001" value="0.01">
+            <span id="yFrequencyValue">0.01</span>
+        </div>
+        <div>
+            <label for="color1">Color 1: </label>
+            <input type="color" id="color1" value="#FFD700">
+        </div>
+        <div>
+            <label for="color2">Color 2: </label>
+            <input type="color" id="color2" value="#00274C">
+        </div>
+        <div>
+            <label for="fractalDepth">Fractal Depth: </label>
+            <input type="range" id="fractalDepth" min="1" max="10" step="1" value="3">
+            <span id="fractalDepthValue">3</span>
+        </div>
+        <div class="button-container">
+            <button id="theme-toggle" class="icon-button">🌙</button> <!-- Moon icon for dark mode -->
+            <button id="resetButton">Reset</button>
+        </div>
+    </div>
+    <div id="gl-canvas-container">
+        <canvas id="gl-canvas" width="512" height="512">
+            Shiiii WebGL no work on this browser
+        </canvas>
+    </div>
+</body>
+</html>

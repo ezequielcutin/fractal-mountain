@@ -1,0 +1,115 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-switcher {
+    margin: 20px;
+}
+
+#description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#description p {
+    padding: 0 100px;
+}
+
+
+#controls {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#controls div {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 150px; /* Adjust width as needed for alignment */
+}
+
+input[type="range"]  {
+    width: 200px;
+}
+
+input[type="color"] {
+    width: 80px;
+}
+
+canvas {
+    border: 1px solid #ddd;
+}
+
+#gl-canvas {
+    position: relative;
+    width: 512px;
+    height: 512px;
+    margin: 0 auto;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Dark mode styles */
+body.dark {
+    background-color: #000d1a; /* Darker blue */
+    color: #ffffff;
+}
+
+body.dark #controls {
+    background-color: #001a33; /* Darker blue for controls */
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .text {
+    color: #FFCB05; /* Adjust text color for dark mode */
+}
+
+body.dark input[type="color"] {
+    border: none; /* Remove border in dark mode */
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Space above the buttons */
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    font-size: 24px; /* Adjust size as needed */
+    cursor: pointer;
+    margin-right: 10px; /* Space between buttons */
+    transition: transform 0.2s;
+}
+
+.icon-button:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+#resetButton {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFCB05; /* Michigan Maize */
+    color: #00274C; /* Michigan Blue */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#resetButton:hover {
+    background-color: #e0a500; /* Darker shade on hover */
+}
