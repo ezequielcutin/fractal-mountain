@@ -1,6 +1,6 @@
 # Fractal Mountain
 
-Fractal Mountain is an interactive application that generates beautiful fractal mountain landscapes. Users can customize various parameters to create unique visual experiences, making it a perfect tool for both art and education.
+Fractal Mountain is an interactive application that generates fractal mountain landscapes. Users can customize various parameters to create unique visual experiences, making it a perfect tool for both art and education. This is part of my introductory journey into WebGL and computer graphics.
 
 ## Features
 
@@ -38,4 +38,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Inspired by fractal geometry and its applications in art and nature.
-- Thanks to the open-source community for their invaluable resources and support.
+- Thanks to the open-source community for their invaluable resources and support, such as MV.js, which makes the linear algebra much simpler.
